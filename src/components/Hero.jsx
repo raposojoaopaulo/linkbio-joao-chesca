@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import heroDesk from '../assets/images/hero-desk.webp';
-import heroMob from '../assets/images/hero-mob.webp';
+import heroDesk from '../assets/images/joao_hero_desk.webp';
+import heroMob from '../assets/images/joao_hero_mob.webp';
 
 export function Hero() {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -19,7 +19,7 @@ export function Hero() {
     <div className="hero">
       <img
         src={src}
-        alt="João Chesca, psicólogo"
+        alt="João Chesca Psicólogo"
         className="hero__img"
       />
     </div>

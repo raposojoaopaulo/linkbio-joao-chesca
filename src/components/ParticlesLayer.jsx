@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
-import Particles, { initParticlesEngine } from '@tsparticles/react';
-import { loadSlim } from '@tsparticles/slim';
+import { useEffect, useMemo, useState } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
 
-const ENABLE_PARTICLES = true; // false = desliga partículas
+const ENABLE_PARTICLES = true;
 const MOBILE_BREAKPOINT = 768;
 
 export function ParticlesLayer() {
@@ -11,19 +11,19 @@ export function ParticlesLayer() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const motionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const motionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const updateMotion = () => setPrefersReducedMotion(motionMq.matches);
     updateMotion();
-    motionMq.addEventListener('change', updateMotion);
-    return () => motionMq.removeEventListener('change', updateMotion);
+    motionMq.addEventListener("change", updateMotion);
+    return () => motionMq.removeEventListener("change", updateMotion);
   }, []);
 
   useEffect(() => {
     const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
     const update = () => setIsMobile(mq.matches);
     update();
-    mq.addEventListener('change', update);
-    return () => mq.removeEventListener('change', update);
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
   }, []);
 
   useEffect(() => {
@@ -35,42 +35,69 @@ export function ParticlesLayer() {
 
   const options = useMemo(() => {
     const reduced = prefersReducedMotion;
-    const count = reduced ? 0 : (isMobile ? 400 : 40);
-    const densityArea = isMobile ? 400 : 1000;
+
     return {
       fullScreen: false,
-      background: { color: { value: 'transparent' } },
+      background: { color: { value: "transparent" } },
       fpsLimit: 60,
+
       interactivity: {
-        events: { onHover: { enable: false } },
-        modes: {},
+        detectsOn: "window",
+      
+        events: {
+          onHover: {
+            enable: !reduced && !isMobile,
+            mode: "attract",
+          },
+          resize: true,
+        },
+      
+        modes: {
+          attract: {
+            distance: 140,
+            duration: 0.25,
+            factor: 0.35,
+            maxSpeed: 0.6,
+            speed: 0.7,
+          },
+        },
       },
+
       particles: {
         number: {
-          value: count,
-          density: { enable: true, area: densityArea },
+          value: reduced ? 0 : isMobile ? 200 : 125,
+          density: {
+            enable: true,
+            area: isMobile ? 550 : 650,
+          },
         },
-        color: { value: '#ffffff' },
+
+        color: { value: "#ffffff" },
+
         opacity: {
-          value: { min: 0.3, max: 0.6 },
+          value: { min: 0.15, max: 0.35 },
         },
-        size: { value: { min: 1, max: 2 } },
+
+        size: {
+          value: { min: 2.0, max: 4.0 },
+        },
+
         move: {
           enable: !reduced,
-          speed: reduced ? 0 : 0.5,
-          direction: 'none',
+          speed: 0.20,
           random: true,
-          straight: false,
-          outModes: { default: 'out' },
+          outModes: { default: "out" },
         },
+
         links: {
           enable: !reduced,
-          distance: 120,
-          color: '#ffffff',
-          opacity: 0.15,
-          width: 0.5,
+          distance: 75,
+          color: "#ffffff",
+          opacity: 0.08,
+          width: 0.6,
         },
       },
+
       detectRetina: true,
     };
   }, [prefersReducedMotion, isMobile]);
@@ -80,17 +107,20 @@ export function ParticlesLayer() {
   return (
     <div
       style={{
-        position: 'absolute',
+        position: "absolute",
         inset: 0,
         zIndex: 0,
-        pointerEvents: 'none',
+        pointerEvents: "none",
       }}
       aria-hidden="true"
     >
       <Particles
         id="tsparticles-layer"
         options={options}
-        style={{ position: 'absolute', inset: 0 }}
+        style={{
+          position: "absolute",
+          inset: 0,
+        }}
       />
     </div>
   );

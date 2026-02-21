@@ -1,7 +1,6 @@
 .app {
   position: relative;
   min-height: 100vh;
-  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,7 +92,7 @@
     background: var(--color-pill-bg);
     border-radius: var(--radius-pill);
     font-family: var(--font-links);
-    border: 2px solid var(--color-white);
+    border: 2px solid var(--color-pill-border);
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -132,15 +131,15 @@
   .floating-pills__link {
     left: 50%;
   }
-  .floating-pills__link--atendimentos { top: 28%; transform: translateX(calc(-50% - 215px)); }
+  .floating-pills__link--atendimentos { top: 33%; transform: translateX(calc(-50% - 215px)); }
   .floating-pills__link--atendimentos:hover { transform: translateX(calc(-50% - 215px)) translateY(-4px); }
-  .floating-pills__link--instagram { top: 34%; transform: translateX(calc(-50% + 264px)); }
+  .floating-pills__link--instagram { top: 39%; transform: translateX(calc(-50% + 264px)); }
   .floating-pills__link--instagram:hover { transform: translateX(calc(-50% + 264px)) translateY(-4px); }
-  .floating-pills__link--tiktok { top: 42%; transform: translateX(calc(-50% - 260px)); }
+  .floating-pills__link--tiktok { top: 49%; transform: translateX(calc(-50% - 260px)); }
   .floating-pills__link--tiktok:hover { transform: translateX(calc(-50% - 260px)) translateY(-4px); }
-  .floating-pills__link--youtube { top: 52%; transform: translateX(calc(-50% + 280px)); }
+  .floating-pills__link--youtube { top: 61%; transform: translateX(calc(-50% + 280px)); }
   .floating-pills__link--youtube:hover { transform: translateX(calc(-50% + 280px)) translateY(-4px); }
-  .floating-pills__link--ebook { top: 60%; transform: translateX(calc(-50% - 210px)); }
+  .floating-pills__link--ebook { top: 71%; transform: translateX(calc(-50% - 210px)); }
   .floating-pills__link--ebook:hover { transform: translateX(calc(-50% - 210px)) translateY(-4px); }
 }
 
@@ -173,14 +172,15 @@
   align-items: center;
   gap: 1rem;
   padding: 0.875rem 1rem;
-  background: #fff;
-  border: 2px solid var(--color-pill-border);
+  background: #004876;
+  border: 2px solid var(--color-white);
   border-radius: var(--radius-pill);
   font-family: var(--font-links);
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: #1a1a1a;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: var(--color-white);
+  box-shadow: var(--shadow-pill);
 }
 
 .links-card__link:hover {
@@ -196,7 +196,7 @@
   height: 44px;
   min-width: 44px;
   border-radius: 50%;
-  background: rgba(45, 138, 122, 0.12);
+  background: var(--color-white);
 }
 
 .links-card__icon svg,
