@@ -17,11 +17,17 @@ export function Hero() {
 
   return (
     <div className="hero">
+      <h1 className="visually-hidden">
+        João Chesca | Psicólogo Clínico | Terapia Online
+      </h1>
       <img
         src={src}
         alt="João Chesca Psicólogo"
         className="hero__img"
       />
+      <p className="hero__crp" aria-label="Registro profissional CRP 001122">
+        CRP-08/44398
+      </p>
     </div>
   );
 }
