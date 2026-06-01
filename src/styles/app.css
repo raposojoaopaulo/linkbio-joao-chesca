@@ -203,8 +203,6 @@
   .floating-pills__link--tiktok:hover { transform: translateX(calc(-50% - 227px)) translateY(-4px); }
   .floating-pills__link--youtube { top: 60%; transform: translateX(calc(-50% + 220px)); }
   .floating-pills__link--youtube:hover { transform: translateX(calc(-50% + 220px)) translateY(-4px); }
-  .floating-pills__link--ebook { top: 67%; transform: translateX(calc(-50% - 210px)); }
-  .floating-pills__link--ebook:hover { transform: translateX(calc(-50% - 210px)) translateY(-4px); }
 }
 
 @media (min-width: 1400px) {
@@ -216,8 +214,6 @@
   .floating-pills__link--tiktok:hover { transform: translateX(calc(-50% - 287px)) translateY(-4px); }
   .floating-pills__link--youtube { top: 61%; transform: translateX(calc(-50% + 280px)); }
   .floating-pills__link--youtube:hover { transform: translateX(calc(-50% + 280px)) translateY(-4px); }
-  .floating-pills__link--ebook { top: 71%; transform: translateX(calc(-50% - 210px)); }
-  .floating-pills__link--ebook:hover { transform: translateX(calc(-50% - 210px)) translateY(-4px); }
 }
 
 @media (min-width: 768px) {

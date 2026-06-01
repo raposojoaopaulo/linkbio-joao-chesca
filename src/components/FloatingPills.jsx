@@ -2,7 +2,7 @@ import { LiquidGlass } from '@liquidglass/react';
 import { links } from '../data/links';
 import { Icon } from './Icon';
 
-const desktopOrder = ['atendimentos', 'instagram', 'tiktok', 'youtube', 'ebook'];
+const desktopOrder = ['atendimentos', 'instagram', 'tiktok', 'youtube'];
 
 const orderedLinks = desktopOrder.map((id) => links.find((l) => l.id === id)).filter(Boolean);
 
